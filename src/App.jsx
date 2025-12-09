@@ -5,7 +5,7 @@ import TodosActivities from "./pages/TodosActivities";
 import Habits from "./pages/Habits";
 import EventPlanner from "./pages/EventPlanner";
 import Login from "./pages/Login";
-import ErrorPage from "./pages/ErrorPage";
+import ErrorPage from "./pages/errorpage/ErrorPage";
 import Navigation from "./components/navigation/Navigation";
 import styles from "./App.module.css";
 
