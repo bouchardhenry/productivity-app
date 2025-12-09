@@ -6,6 +6,7 @@
   }
   
   .form {
+    color: #111;
     width: 100%;
     max-width: 380px;
     padding: 24px;
@@ -36,7 +37,8 @@
   }
   
   .inputGroup label {
-    display: block;
+    display: grid;
+    gap: 6px;
   }
   
   .emailInput,
