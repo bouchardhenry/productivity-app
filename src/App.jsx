@@ -16,11 +16,11 @@ function App() {
         <Navigation />
         <main className={styles.content}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
             <Route path="/todos" element={<TodosActivities />} />
             <Route path="/habits" element={<Habits />} />
             <Route path="/events" element={<EventPlanner />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Home />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </main>

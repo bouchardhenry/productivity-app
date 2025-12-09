@@ -10,12 +10,12 @@ function Navigation() {
   const location = useLocation();
 
   // Dölj navbar på login-sidan
-  if (location.pathname === "/login") {
+  if (location.pathname === "/") {
     return null;
   }
 
   const navItems = [
-    { path: "/", label: "Dashboard", img: dashboardIcon },
+    { path: "/dashboard", label: "Dashboard", img: dashboardIcon },
     { path: "/todos", label: "Todos", img: todoIcon },
     { path: "/habits", label: "Habits", img: habitsIcon },
     { path: "/events", label: "Event planner", img: eventsIcon },
@@ -24,7 +24,7 @@ function Navigation() {
   return (
     <nav className={styles.sidebar}>
       <div className={styles.logoDiv}>
-        <Link to="/">
+        <Link to="/dashboard">
           <img
             src={Logo}
             alt="Logo representing a old shaman sitting down and meditating"
@@ -50,7 +50,7 @@ function Navigation() {
       </ul>
 
       <div className={styles.navFooter}>
-        <Link to="/login" className={styles.navLink}>
+        <Link to="/" className={styles.navLink}>
           Log out
         </Link>
       </div>
