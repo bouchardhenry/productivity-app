@@ -1,6 +1,7 @@
 import EventForm from '../components/eventForm/eventForm'
 import Events from '../components/EventsDiv/Events'
 import { useState } from 'react'
+import styles from '../components/eventForm/EventForm.module.css'
 
 export default function EventPlanner(){
 
@@ -8,7 +9,8 @@ export default function EventPlanner(){
 
     return(
         <>
-        {!show ? <EventForm /> : <button onClick={() => setShow(false)}>Lägg till händelse</button>}
+        {!show ? <EventForm /> : 
+        <button onClick={() => setShow(false)} className={styles.newEventButton}>Skapa ny händelse</button>}
         <Events />
         </>
     )

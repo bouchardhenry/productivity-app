@@ -8,12 +8,13 @@ const Events = () => {
     return(
         <div className={styles.eventsGrid}>
             {events?.map(event => (
-                <div className={styles.eventsDiv}>
+                <div key={event.title} className={styles.eventsDiv}>
                     <h3>{event.title}</h3>
                     <ul>
+                        <li>Beskrivning: {event.description}</li>
+                        <li>Datum: {event.date}</li>
                         <li>Starttid: {event.start}</li>
                         <li>Sluttid: {event.end}</li>
-                        <li>Beskrivning: {event.description}</li>
                     </ul>
                 </div>
             ))}
