@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import ErrorPage from "./pages/ErrorPage";
 import Navigation from "./components/navigation/Navigation";
 import styles from "./App.module.css";
+import SignUp from './pages/SignUp'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <main className={styles.content}>
           <Routes>
             <Route path="/" element={<Login />} />
+      <Route path='/signup' element={<SignUp />}/>
             <Route path="/todos" element={<TodosActivities />} />
             <Route path="/habits" element={<Habits />} />
             <Route path="/events" element={<EventPlanner />} />
