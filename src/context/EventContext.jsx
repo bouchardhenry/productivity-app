@@ -5,6 +5,14 @@ export const EventContext = createContext()
 export default function EventProvider({children}){
 
     const [events, setEvents] = useState([])
+    const [editEvent, setEditEvent] = useState(null)
+
+    const startEditing = (event) => {
+        setEditEvent(event)
+    }
+    const stopEditing = () => {
+        setEditEvent(null)
+    }
 
     const sortedEvents = [...events].sort(
         (a, b) => new Date(a.start) - new Date(b.start)
@@ -17,7 +25,8 @@ export default function EventProvider({children}){
     }
 
     return(
-        <EventContext value={{events, setEvents, sortedEvents, deleteEvent}}>
+        <EventContext value={{
+            events, setEvents, sortedEvents, deleteEvent, editEvent, startEditing, stopEditing}}>
             {children}
         </EventContext>
     )

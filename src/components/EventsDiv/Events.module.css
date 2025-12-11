@@ -14,3 +14,8 @@
     gap: 0.5rem;
     width: 100%;
 }
+
+.past {
+  color: grey;
+  opacity: 0.6;
+}

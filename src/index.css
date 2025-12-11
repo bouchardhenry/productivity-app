@@ -32,6 +32,7 @@ li{
 input{
   border-radius: var(--radius-md);
   border: none;
+  padding: 0.2rem;
 }
 
 button{

@@ -12,9 +12,33 @@
     border-radius: var(--radius-md);
 }
 
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form h2{
+    display: flex;
+    justify-content: center;
+}
+
+.form textarea {
+    padding: 0.3rem;
+    border-radius: var(--radius-md);
+}
+
 .newEventButton{
     background-color: var(--color-primary);
     border: none;
     display: flex;
     justify-content: center;
+}
+
+.startTime{
+    display: flex;
+}
+
+.endTime{
+    display: flex;
 }
