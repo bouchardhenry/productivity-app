@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { HabitsContext } from "../../context/HabitsContext";
+import styles from "./Habitform.module.css";
 
 export default function HabitForm({ onClose }) {
   const { addHabit } = useContext(HabitsContext);
@@ -26,6 +27,7 @@ export default function HabitForm({ onClose }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className={styles.formContent}>
       <label htmlFor="habits">Select a new habit</label>
       <br />
       <select
@@ -56,9 +58,10 @@ export default function HabitForm({ onClose }) {
           </option>
         ))}
       </select>
+      </div>
       <br />
       <br />
-      <button type="submit">Add</button>
+      <button type="submit" className={styles.addBtn}>Add</button>
     </form>
   );
 }

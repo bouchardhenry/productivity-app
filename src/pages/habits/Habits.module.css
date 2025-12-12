@@ -1,5 +1,6 @@
 .titleDiv {
   height: 20%;
+  text-align: start;
 }
 
 .titleDiv h1 {
@@ -11,19 +12,29 @@
   color: var(--color-primary);
 }
 
+.titleDiv img {
+  display: block;
+  margin: 0 auto;
+  width: 18%;
+}
+
 .habitsForm {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 40%;
+  position: relative;
 }
 
-.habitsForm button {
+.addNewHabit {
   background-color: var(--color-primary);
   color: var(--color-text);
   border: none;
   font-size: 1.5rem;
   padding: 15px 40px;
+  position: absolute;
+  bottom: 0;
 }
 
 .habitsDiv {
