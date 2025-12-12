@@ -10,6 +10,8 @@ const EventForm = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
+    let now = new Date().toISOString().slice(0, 16)
+
     const emptyEvents = () => {
         setTitle('')
         setDescription('')
@@ -73,11 +75,11 @@ const EventForm = () => {
                 <div className={styles.inputContainer}>
                 <div>
                 <label className={styles.startTime}>Starts: </label>
-                <input type="datetime-local" value={start} onChange={(e) => setStart(e.target.value)} />
+                <input type="datetime-local" min={now} max='2099-12-31T23:59' value={start} onChange={(e) => setStart(e.target.value)} />
                 </div>
                 <div>
                 <label className={styles.endTime}>Ends: </label>
-                <input type="datetime-local" value={end} onChange={(e) => setEnd(e.target.value)} />
+                <input type="datetime-local" min={now} max='2099-12-31T23:59' value={end} onChange={(e) => setEnd(e.target.value)} />
                 </div>
                 <input type="text" value={title} placeholder="Choose a title" onChange={(e) => setTitle(e.target.value)} />
 
