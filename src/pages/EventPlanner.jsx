@@ -1,4 +1,4 @@
-import EventForm from '../components/eventForm/eventForm'
+import EventForm from '../components/eventForm/EventForm'
 import Events from '../components/EventsDiv/Events'
 import { useState } from 'react'
 import styles from '../components/eventForm/EventForm.module.css'
@@ -10,7 +10,7 @@ export default function EventPlanner(){
     return(
         <>
         {!show ? <EventForm /> : 
-        <button onClick={() => setShow(false)} className={styles.newEventButton}>Skapa ny händelse</button>}
+        <button onClick={() => setShow(false)} className={styles.newEventButton}>Create new event</button>}
         <Events />
         </>
     )

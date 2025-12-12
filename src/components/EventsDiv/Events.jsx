@@ -17,17 +17,17 @@ const Events = () => {
                 <div key={event.id} className={`${styles.eventsDiv} ${isPastEvent(event) ? styles.past : ''}`}>
                     <h3>{event.title}</h3>
                     <ul>
-                        <li>Beskrivning: {event.description}</li>
-                        <li>Starttid: {new Date(event.start).toLocaleDateString('sv-SE')} {' '}
+                        <li>Description: {event.description}</li>
+                        <li>Starttime: {new Date(event.start).toLocaleDateString('sv-SE')} {' '}
                             {new Date(event.start).toLocaleTimeString('sv-SE',
                                 { hour: '2-digit', minute: '2-digit' })}</li>
-                        <li>Sluttid: {new Date(event.end).toLocaleDateString('sv-SE')} {' '}
+                        <li>Endtime: {new Date(event.end).toLocaleDateString('sv-SE')} {' '}
                             {new Date(event.end).toLocaleTimeString('sv-SE',
                                 { hour: '2-digit', minute: '2-digit' })}</li>
                     </ul>
                     <div>
-                        <button onClick={() => startEditing(event)}>Redigera</button>
-                        <button onClick={() => deleteEvent(event.id)}>Ta bort</button>
+                        <button onClick={() => startEditing(event)}>Edit</button>
+                        <button onClick={() => deleteEvent(event.id)}>Delete</button>
                     </div>
                 </div>
             ))}

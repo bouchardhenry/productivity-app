@@ -52,12 +52,12 @@ const EventForm = () => {
         }
 
         if (start >= end ){
-            alert('Du måste välja korrekt datum')
+            alert('You need to pick a valid date')
             return;
         }
 
         if (!title || !description || !start || !end){
-            alert('Du måste fylla i alla fälten')
+            alert('You need to fill all the empty fields')
             return;
         }
 
@@ -69,20 +69,20 @@ const EventForm = () => {
     return (
         <div className={styles.formDiv}>
             <form className={styles.form} onSubmit={addEvent}>
-                <h2>Skapa ett event</h2>
+                <h2>Create an event</h2>
                 <div className={styles.inputContainer}>
                 <div>
-                <label className={styles.startTime}>Start: </label>
+                <label className={styles.startTime}>Starts: </label>
                 <input type="datetime-local" value={start} onChange={(e) => setStart(e.target.value)} />
                 </div>
                 <div>
-                <label className={styles.endTime}>Slut: </label>
+                <label className={styles.endTime}>Ends: </label>
                 <input type="datetime-local" value={end} onChange={(e) => setEnd(e.target.value)} />
                 </div>
-                <input type="text" value={title} placeholder="Skriv en titel..." onChange={(e) => setTitle(e.target.value)} />
+                <input type="text" value={title} placeholder="Choose a title" onChange={(e) => setTitle(e.target.value)} />
 
-                <textarea value={description} rows='4' cols='30' placeholder="Beskriv din händelse..." onChange={(e) => setDescription(e.target.value)} />
-                <button>{ editEvent ? 'Spara ändringar' : 'Lägg till' }</button>
+                <textarea value={description} rows='4' cols='30' placeholder="Describe your event..." onChange={(e) => setDescription(e.target.value)} />
+                <button>{ editEvent ? 'Save changes' : 'Add event' }</button>
                 </div>
             </form>
 
