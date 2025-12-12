@@ -1,0 +1,26 @@
+.repSection {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.repSection button {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    width: 3rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 100%;
+    background-color: rgb(41, 41, 41);
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
+.resetBtn {
+    background-color: transparent;
+    border: none;
+    color: var(--color-text);
+}

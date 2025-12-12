@@ -1,0 +1,27 @@
+.habits {
+  text-align: start;
+}
+
+.habits h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.habits h3 {
+    font-size: 2rem;
+}
+
+.habitCards {
+  width: 100%;
+  gap: 10rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.habitCard {
+  padding: 1rem;
+  width: 300px;
+  border: solid 1px var(--color-primary);
+  border-radius: 5px;
+}

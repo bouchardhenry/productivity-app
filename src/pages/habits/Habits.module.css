@@ -28,4 +28,6 @@
 
 .habitsDiv {
   height: 40%;
+  display: flex;
+  justify-content: start;
 }
