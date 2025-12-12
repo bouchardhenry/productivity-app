@@ -1,0 +1,31 @@
+.titleDiv {
+  height: 20%;
+}
+
+.titleDiv h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.titleDiv h2 {
+  color: var(--color-primary);
+}
+
+.habitsForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+
+.habitsForm button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  font-size: 1.5rem;
+  padding: 15px 40px;
+}
+
+.habitsDiv {
+  height: 40%;
+}
