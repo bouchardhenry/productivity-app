@@ -59,7 +59,7 @@
   box-shadow: 0 5px 15px rgba(0, 153, 255, 0.4);
 }
 
-/* OVERLAY - Mörk bakgrund */
+/* OVERLAY */
 .overlay {
   position: fixed;
   top: 0;
@@ -71,7 +71,7 @@
   animation: fadeIn 0.3s ease;
 }
 
-/* MODAL - Popup box */
+/* MODAL */
 .modal {
   position: fixed;
   top: 50%;
