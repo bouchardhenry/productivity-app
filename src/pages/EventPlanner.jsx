@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { EventContext } from '../context/EventContext'
 import styles from '../components/EventsDiv/Events.module.css' 
 import EventForm from '../components/eventForm/EventForm'
