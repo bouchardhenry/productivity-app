@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import TodosActivities from "./pages/TodosActivities";
 import Habits from "./pages/Habits";
@@ -10,11 +10,13 @@ import Navigation from "./components/navigation/Navigation";
 import styles from "./App.module.css";
 import SignUp from './pages/SignUp'
 import EventProvider from "./context/EventContext";
+import TodoProvider from "./context/TodoContext";
 
 function App() {
   return (
     <>
       <EventProvider>
+        <TodoProvider>
       <div className={styles.layout}>
         <Navigation />
         <main className={styles.content}>
@@ -29,6 +31,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      </TodoProvider>
       </EventProvider>
     </>
   );
