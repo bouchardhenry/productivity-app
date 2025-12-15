@@ -8,18 +8,18 @@ export function HabitsProvider({ children }) {
   const addHabit = (habit, priority) => {
     const newHabit = {
       id: Date.now(),
-      habit,
+      habitId: habit.id,
+      label: habit.label,
+      icon: habit.icon,
       priority,
       repetitions: 0,
     };
-    setHabits([...habits, newHabit]);
+    setHabits((prev) => [...prev, newHabit]);
   };
 
   const updateRepetitions = (id, newCount) => {
     setHabits(
-      habits.map((h) =>
-        h.id === id ? { ...h, repetitions: newCount } : h
-      )
+      habits.map((h) => (h.id === id ? { ...h, repetitions: newCount } : h))
     );
   };
 

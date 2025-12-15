@@ -5,7 +5,7 @@ import Repetition from "./repetiton";
 
 export default function HabitsDiv() {
   const { habits, updateRepetitions } = useContext(HabitsContext);
-  
+
   // State for filtering and sorting
   const [filterPriority, setFilterPriority] = useState("All");
   const [sortBy, setSortBy] = useState("none");
@@ -28,12 +28,14 @@ export default function HabitsDiv() {
   // FILTERING - Filtering on priority
   let filteredHabits = habits;
   if (filterPriority !== "All") {
-    filteredHabits = habits.filter((habit) => habit.priority === filterPriority);
+    filteredHabits = habits.filter(
+      (habit) => habit.priority === filterPriority
+    );
   }
 
   // SORTING - Sort for choosen alternativ
   let sortedHabits = [...filteredHabits];
-  
+
   if (sortBy === "repetitions") {
     sortedHabits.sort((a, b) => {
       return sortOrder === "asc"
@@ -49,11 +51,14 @@ export default function HabitsDiv() {
     });
   }
 
-    // IF THERE ARE NO HABITS AT ALL - SHOW NOTHING
+  // IF THERE ARE NO HABITS AT ALL - SHOW NOTHING
   if (habits.length === 0) {
-    return null;
+    return (
+      <div className={styles.noHabitsYet}>
+        <h2>No habits yet. Add one to get started!</h2>
+      </div>
+    );
   }
-
 
   return (
     <div className={styles.habits}>
@@ -107,8 +112,13 @@ export default function HabitsDiv() {
         ) : (
           sortedHabits.map((habit) => (
             <div key={habit.id} className={styles.habitCard}>
-              <h3>{habit.habit}</h3>
-              <p>Priority: {habit.priority}</p>
+              <div className={styles.habitIcn}>
+                <img src={habit.icon} alt={habit.label} />
+              </div>
+              <h3>{habit.label}</h3>
+              <span className={`${styles.priority} ${styles[habit.priority]}`}>
+                {habit.priority}
+              </span>
               <Repetition
                 count={habit.repetitions}
                 onIncrement={() => handleIncrement(habit.id, habit.repetitions)}
