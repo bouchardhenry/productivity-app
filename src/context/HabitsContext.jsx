@@ -10,12 +10,21 @@ export function HabitsProvider({ children }) {
       id: Date.now(),
       habit,
       priority,
+      repetitions: 0,
     };
     setHabits([...habits, newHabit]);
   };
 
+  const updateRepetitions = (id, newCount) => {
+    setHabits(
+      habits.map((h) =>
+        h.id === id ? { ...h, repetitions: newCount } : h
+      )
+    );
+  };
+
   return (
-    <HabitsContext.Provider value={{ habits, addHabit }}>
+    <HabitsContext.Provider value={{ habits, addHabit, updateRepetitions }}>
       {children}
     </HabitsContext.Provider>
   );
