@@ -31,7 +31,6 @@ function Navigation() {
             width={100}
           />
         </Link>
-        <h1 className={styles.title}>HaloMind</h1>
       </div>
       <ul className={styles.navList}>
         {navItems.map((item) => (
@@ -43,7 +42,7 @@ function Navigation() {
               }`}
             >
               <img src={item.img} alt="" className={styles.icons}/>
-              {item.label}
+              <p className="liItems">{item.label}</p>
             </Link>
           </li>
         ))}

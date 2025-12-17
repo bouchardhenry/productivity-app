@@ -8,42 +8,51 @@ export default function TodosActivities() {
   const { todos, showForm, setShowForm, cancelForm } = useTodos();
 
   const openFormForNewTodo = () => {
-    cancelForm(); // nollar ev edit-läge
-    setShowForm(true); // öppnar formuläret
+    cancelForm();
+    setShowForm(true);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+    cancelForm();
   };
 
   return (
     <div className="layout">
       <Navigation />
       <main className="content">
-        <section className={styles.page}>
-          <header className={styles.header}>
-            <h1 className={styles.title}>Todos & Activities</h1>
-            {/*Eventuell räkning av todos kan läggas här*/}
-          </header>
+        <header>
+          <h1 className={styles.title}>Todos & Activities</h1>
+          {/*Eventuell räkning av todos kan läggas här*/}
+        </header>
 
-          <div className={styles.main}>
-            {showForm ? (
-              <TodoForm />
+        <div>
+          {showForm ? (
+            <>
+              {/* OVERLAY */}
+              <div className="overlay" onClick={closeForm}></div>
+
+              {/* MODAL */}
+              <div className="modal">
+                <button className="closeBtn" onClick={closeForm}>
+                  ✕
+                </button>
+                <TodoForm />
+              </div>
+            </>
+          ) : (
+            <button onClick={openFormForNewTodo}>Add todo</button>
+          )}
+        </div>
+
+        <div>
+          {!showForm &&
+            (todos.length < 1 ? (
+              <p className="noData">Created todos will show here!</p>
             ) : (
-              <button
-                onClick={openFormForNewTodo}
-                className={styles.newTodoButton}
-              >
-                + Add todo
-              </button>
-            )}
-
-            {!showForm &&
-              (todos.length < 1 ? (
-                <p className={styles.popupText}>
-                  Created todos will show here!
-                </p>
-              ) : (
-                <Todos />
-              ))}
-          </div>
-        </section>
+              <Todos />
+            ))}
+        </div>
       </main>
     </div>
   );

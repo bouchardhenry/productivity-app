@@ -12,43 +12,29 @@ export default function Habits() {
       <div className="layout">
         <Navigation />
         <main className="content">
-          <div className={styles.titleDiv}>
+          <div>
             <h1>Habits</h1>
-            <h2>
-              <strong>X</strong> of <strong>Y</strong> habits honored today
-            </h2>
           </div>
-          <div className={styles.habitsForm}>
+          <div>
             {show ? (
               <>
                 {/* OVERLAY */}
-                <div
-                  className={styles.overlay}
-                  onClick={() => setShow(false)}
-                ></div>
+                <div className="overlay" onClick={() => setShow(false)}></div>
 
                 {/* MODAL */}
-                <div className={styles.modal}>
-                  <button
-                    className={styles.closeBtn}
-                    onClick={() => setShow(false)}
-                  >
+                <div className="modal">
+                  <button className="closeBtn" onClick={() => setShow(false)}>
                     ✕
                   </button>
                   <HabitForm onClose={() => setShow(false)} />
                 </div>
               </>
             ) : (
-              <button
-                onClick={() => setShow(true)}
-                className={styles.addNewHabit}
-              >
-                Add a new Habit
-              </button>
+              <button onClick={() => setShow(true)}>Add a new Habit</button>
             )}
           </div>
 
-          <div className={styles.habitsDiv}>
+          <div>
             <HabitsDiv />
           </div>
         </main>

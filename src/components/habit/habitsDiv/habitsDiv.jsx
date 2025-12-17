@@ -54,8 +54,8 @@ export default function HabitsDiv() {
   // IF THERE ARE NO HABITS AT ALL - SHOW NOTHING
   if (habits.length === 0) {
     return (
-      <div className={styles.noHabitsYet}>
-        <h2>No habits yet. Add one to get started!</h2>
+      <div className="noData">
+        <p>No habits yet. Add one to get started!</p>
       </div>
     );
   }
