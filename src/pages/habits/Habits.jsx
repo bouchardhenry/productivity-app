@@ -1,8 +1,7 @@
 import { useState } from "react";
-import HabitForm from "../../components/habitForm/HabitForm";
-import HabitsDiv from "../../components/habitsDiv/habitsDiv";
+import HabitForm from "../../components/habit/habitForm/HabitForm";
+import HabitsDiv from "../../components/habit/habitsDiv/habitsDiv";
 import styles from "./Habits.module.css";
-import habitsIcon from "../../assets/glove.png";
 import Navigation from "../../components/navigation/Navigation";
 
 export default function Habits() {
@@ -18,10 +17,6 @@ export default function Habits() {
             <h2>
               <strong>X</strong> of <strong>Y</strong> habits honored today
             </h2>
-            <img
-              src={habitsIcon}
-              alt="Two hands reaching upward with a 3D box floating above them, symbolizing support, collaboration, or receiving resources"
-            />
           </div>
           <div className={styles.habitsForm}>
             {show ? (

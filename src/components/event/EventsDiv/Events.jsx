@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { EventContext } from "../../context/EventContext"
+import { EventContext } from "../../../context/EventContext"
 import styles from '../EventsDiv/Events.module.css'
 
 const Events = () => {

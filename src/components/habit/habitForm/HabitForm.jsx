@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
-import { HabitsContext } from "../../context/HabitsContext";
+import { HabitsContext } from "../../../context/HabitsContext";
 import styles from "./Habitform.module.css";
-import waterIntakeIcn from "../../assets/Blur.svg";
-import readingIcn from "../../assets/Books.svg";
-import exerciceIcn from "../../assets/Dumbbell.svg";
-import meditationIcn from "../../assets/Floating Guru.svg";
-import journalingIcn from "../../assets/Hand With Pen.svg";
-import sleepIcn from "../../assets/Sleeping in Bed.svg";
+import waterIntakeIcn from "../../../assets/habits/Blur.svg";
+import readingIcn from "../../../assets/habits/Books.svg";
+import exerciceIcn from "../../../assets/habits/Dumbbell.svg";
+import meditationIcn from "../../../assets/habits/Floating Guru.svg";
+import journalingIcn from "../../../assets/habits/Hand With Pen.svg";
+import sleepIcn from "../../../assets/habits/Sleeping in Bed.svg";
 
 export default function HabitForm({ onClose }) {
   const { addHabit } = useContext(HabitsContext);

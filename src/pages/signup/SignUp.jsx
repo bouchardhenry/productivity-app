@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./LoginSignup.module.css";
+import styles from "../login/LoginSignup.module.css";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");

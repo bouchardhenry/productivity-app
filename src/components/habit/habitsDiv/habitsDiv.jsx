@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { HabitsContext } from "../../context/HabitsContext";
+import { HabitsContext } from "../../../context/HabitsContext";
 import styles from "./habitsDiv.module.css";
 import Repetition from "./repetiton";
 
