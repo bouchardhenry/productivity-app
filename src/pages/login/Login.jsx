@@ -1,7 +1,8 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styles from "./LoginSignup.module.css"
-import { UserContext } from "../context/UserContext"
+import { UserContext } from "../../context/UserContext"
+import Logo from "../../assets/shamanLogo.grey.png";
 
 export default function Login(){
 const {loginUser} = useContext(UserContext)
@@ -33,6 +34,7 @@ function handleSubmit(e) {
 return (
 <div className={styles.container}>
     <form className={styles.form} onSubmit={handleSubmit}>
+        <img src={Logo} alt="Logo representing a old shaman sitting down and meditating" />
         <h2 className={styles.title}>Welcome Back</h2>
         <p className={styles.enterP}>Enter the sanctuary</p>
 

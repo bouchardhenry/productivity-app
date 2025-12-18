@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { EventContext } from "../../context/EventContext"
+import { EventContext } from "../../../context/EventContext"
 import styles from '../eventForm/EventForm.module.css'
-import { UserContext } from "../../context/UserContext"
+import { UserContext } from "../../../context/UserContext"
 
 const EventForm = () => {
 

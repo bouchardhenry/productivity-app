@@ -48,14 +48,14 @@ function Navigation() {
               }`}
             >
               <img src={item.img} alt="" className={styles.icons}/>
-              <p className="liItems">{item.label}</p>
+              <span>{item.label}</span>
             </Link>
           </li>
         ))}
       </ul>
 
       <div className={styles.navFooter}>
-        <button onClick={() => {logoutUser(); navigate('/' )}} ></button>
+        <button onClick={() => {logoutUser(); navigate('/' )}} >Logout</button>
       </div>
     </nav>
   );

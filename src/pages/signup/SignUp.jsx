@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./LoginSignup.module.css";
-import { UserContext } from "../context/UserContext";
+import styles from "../login/LoginSignup.module.css";
+import { UserContext } from "../../context/UserContext";
+import Logo from "../../assets/shamanLogo.grey.png";
 
 export default function SignUp() {
 const {registerUser, loginUser} = useContext(UserContext)
@@ -27,6 +28,7 @@ const {registerUser, loginUser} = useContext(UserContext)
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
+        <img src={Logo} alt="Logo representing a old shaman sitting down and meditating" />
         <h2 className={styles.title}>Create Account</h2>
         <p className={styles.enterP}>Join the sanctuary</p>
 
