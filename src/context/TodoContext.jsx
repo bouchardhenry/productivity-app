@@ -1,15 +1,38 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { UserContext } from "./UserContext";
 
 export const TodoContext = createContext(null);
 
 const uid = () => Date.now();
 
 export default function TodoProvider ({ children }) {
+  const {currentUser} = useContext(UserContext)
+
   const [todos, setTodos] = useState([]);
 
   const [showForm, setShowForm] = useState(false);
 
   const [editingTodo, setEditingTodo] = useState(null);
+
+  useEffect(() => {
+        if(currentUser){
+            const allTodos = JSON.parse(localStorage.getItem('todos')) || {}
+            const currentUserTodos = allTodos[currentUser.id] || []
+            setTodos(currentUserTodos)
+        }else{
+            setTodos([])
+        }
+    }, [currentUser])
+
+  useEffect(() => {
+        if (currentUser && todos.length >= 0){
+
+            const allTodos = JSON.parse(localStorage.getItem('todos')) || {}
+
+            allTodos[currentUser.id] = todos
+            localStorage.setItem('todos', JSON.stringify(allTodos))
+        }
+    }, [todos, currentUser])
 
   const addTodo = (todoData) => {
     const title = (todoData.title ?? "").trim();
@@ -17,6 +40,7 @@ export default function TodoProvider ({ children }) {
 
     const newTodo = {
       id: uid(),
+      userId: currentUser.id,
       title,
       description: (todoData.description ?? "").trim(),
       category: todoData.category ?? "Övrigt",
