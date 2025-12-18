@@ -8,12 +8,14 @@ import Login from "./pages/login/Login";
 import ErrorPage from "./pages/errorpage/ErrorPage";
 import SignUp from "./pages/signup/SignUp";
 import EventProvider from "./context/EventContext";
-import TodoProvider from "./context/TodoContext";
 import { HabitsProvider } from "./context/HabitsContext";
+import UserProvider from "./context/UserContext";
+import TodoProvider from "./context/TodoContext";
 
 function App() {
   return (
     <>
+      <UserProvider>
       <EventProvider>
         <HabitsProvider>
         <TodoProvider>
@@ -29,6 +31,7 @@ function App() {
               </TodoProvider>
         </HabitsProvider>
       </EventProvider>
+      </UserProvider>
     </>
   );
 }

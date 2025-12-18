@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react"
-import { EventContext } from "../../../context/EventContext"
-import styles from './EventForm.module.css'
+import { EventContext } from "../../context/EventContext"
+import styles from '../eventForm/EventForm.module.css'
+import { UserContext } from "../../context/UserContext"
 
 const EventForm = () => {
 
     const { 
         events, setEvents, editEvent, stopEditing,
         showForm, setShowForm} = useContext(EventContext)
+    const {currentUser} = useContext(UserContext)
 
     const [start, setStart] = useState('')
     const [end, setEnd] = useState('')
@@ -34,6 +36,16 @@ const EventForm = () => {
     const addEvent = (e) => {
         e.preventDefault()
         console.log(events)
+        
+        if (start >= end ){
+            alert('You need to pick a valid date')
+            return;
+        }
+
+        if (!title || !description || !start || !end){
+            alert('You need to fill all the empty fields')
+            return;
+        }
 
         if(editEvent){
 
@@ -54,20 +66,11 @@ const EventForm = () => {
         let newEvent = {
             //Ger nytt event unikt id beroende på datum
             id: Date.now().toString(),
+            userId: currentUser.id,
             title,
             description,
             start,
             end
-        }
-
-        if (start >= end ){
-            alert('You need to pick a valid date')
-            return;
-        }
-
-        if (!title || !description || !start || !end){
-            alert('You need to fill all the empty fields')
-            return;
         }
 
         setEvents([...events, newEvent])

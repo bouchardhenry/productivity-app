@@ -1,13 +1,36 @@
-import { createContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
+import { UserContext } from "./UserContext"
 
 export const EventContext = createContext()
 
 export default function EventProvider({children}){
 
+    const { currentUser } = useContext(UserContext)
+
     const [events, setEvents] = useState([])
     const [editEvent, setEditEvent] = useState(null)
     const [filter, setFilter] = useState('')
     const [showForm, setShowForm] = useState(false)
+
+    useEffect(() => {
+        if(currentUser){
+            const allEvents = JSON.parse(localStorage.getItem('events')) || {}
+            const currentUserEvents = allEvents[currentUser.id] || []
+            setEvents(currentUserEvents)
+        }else{
+            setEvents([])
+        }
+    }, [currentUser])
+
+    useEffect(() => {
+        if (currentUser && events.length >= 0){
+
+            const allEvents = JSON.parse(localStorage.getItem('events')) || {}
+
+            allEvents[currentUser.id] = events
+            localStorage.setItem('events', JSON.stringify(allEvents))
+        }
+    }, [events, currentUser])
 
     const startEditing = (event) => {
         setEditEvent(event)
