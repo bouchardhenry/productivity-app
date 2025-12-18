@@ -9,7 +9,8 @@ export default function UserProvider({children}){
     })
 
     const [currentUser, setCurrentUser] = useState(() => {
-        return JSON.parse(sessionStorage.getItem('currentUser')) || null
+        return JSON.parse(sessionStorage.getItem('currentUser')) || 
+        JSON.parse(localStorage.getItem('currentUser')) || null
     })
 
     useEffect(() => {
@@ -19,8 +20,10 @@ export default function UserProvider({children}){
     useEffect(() => {
         if (currentUser){
             sessionStorage.setItem('currentUser', JSON.stringify(currentUser))
+            localStorage.setItem('currentUser', JSON.stringify(currentUser))
         } else{
             sessionStorage.removeItem('currentUser')
+            localStorage.removeItem('currentUser')
         }
     }, [currentUser])
 

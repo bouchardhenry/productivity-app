@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import { UserContext } from "./UserContext"
 
 export const EventContext = createContext()
@@ -7,7 +7,17 @@ export default function EventProvider({children}){
 
     const { currentUser } = useContext(UserContext)
 
-    const [events, setEvents] = useState([])
+    const [events, setEvents] = useState(() => {
+    const storedUser = JSON.parse(sessionStorage.getItem('currentUser')) ||
+    JSON.parse(localStorage.getItem('currentUser'))
+
+    if(storedUser){
+      const allEvents = JSON.parse(localStorage.getItem('events')) || {};
+      return allEvents[storedUser.id] || [];
+    }
+    return []
+  });
+  
     const [editEvent, setEditEvent] = useState(null)
     const [filter, setFilter] = useState('')
     const [showForm, setShowForm] = useState(false)
