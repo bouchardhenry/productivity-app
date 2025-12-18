@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import Navigation from "../../components/navigation/Navigation";
 import { UserContext } from "../../context/UserContext";
+import styles from "./Home.module.css";
+import planet from "../../assets/cyberspace.png"
 
 export default function Home() {
   const { currentUser } = useContext(UserContext);
@@ -24,10 +26,12 @@ export default function Home() {
     <div className="layout">
       <Navigation />
       <main className="content">
-        <h1>Welcome back, {currentUser?.username || "User"}</h1>
-
+        <h1 className={styles.welcome}>Welcome back, <span className={styles.username}>{currentUser?.username || "User"}</span></h1>
+        <img src={planet} alt="planet drawing" className={styles.planet}/>
         {quote && (
-          <h2>{`"${quote.quote}" — ${quote.author}`}</h2>
+          <div className={styles.quote}>
+            <h2>{quote.quote}</h2> — <p>{quote.author}</p>
+          </div>
         )}
       </main>
     </div>

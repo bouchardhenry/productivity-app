@@ -1,0 +1,30 @@
+.quote {
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quote p {
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.welcome {
+  font-size: 3rem;
+}
+
+.username {
+  background: var(--gradient-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.planet {
+  padding: 50px;
+  width: 15%;
+  height: auto;
+}
