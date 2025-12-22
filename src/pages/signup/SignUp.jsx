@@ -42,7 +42,7 @@ const {registerUser, loginUser} = useContext(UserContext)
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
               required
-              autoComplete="username"
+              autoComplete="off"
             />
           </label>
 
