@@ -41,26 +41,26 @@ return (
         
             <div className={styles.inputGroup}>
             <label className={styles.label}>
-                Username
+                <code>Username</code>
             <input className={styles.emailInput}
                 type="text" 
                 value={username} 
-                placeholder="Username"
+                placeholder="meditator123"
                 onChange={(e) => setUsername(e.target.value)} 
                 required 
-                autoComplete="username"
+                autoComplete="off"
             />
         </label>
 
         <label className={styles.label}>
-            Password
+            <code>Password</code>
             <input className={styles.passwordInput}
                 type="password" 
                 value={password} 
-                placeholder="Your Password"
+                placeholder="●●●●●●●●"
                 onChange={(e) => setPassword(e.target.value)} 
                 required
-                autoComplete="current-password"
+                autoComplete="new-password"
             />
         </label>
     </div>
