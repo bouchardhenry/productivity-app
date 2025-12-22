@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import styles from "./Navigation.module.css";
 import Logo from "../../assets/shamanLogo.grey.png";
@@ -62,30 +62,59 @@ function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
   const { logoutUser } = useContext(UserContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
     logoutUser();
     navigate("/");
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className={styles.sidebar}>
-      <NavHeader />
+    <>
+      {/* Hamburger button for mobile/tablet */}
+      <button
+        className={styles.hamburger}
+        onClick={toggleMenu}
+        aria-label="Toggle navigation menu"
+      >
+        <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.open : ''}`}></span>
+        <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.open : ''}`}></span>
+        <span className={`${styles.hamburgerLine} ${isMenuOpen ? styles.open : ''}`}></span>
+      </button>
 
-      <ul className={styles.navList}>
-        {NAV_ITEMS.map((item) => (
-          <li key={item.path} className={styles.navItem}>
-            <NavLink
-              path={item.path}
-              label={item.label}
-              isActive={location.pathname === item.path}
-            />
-          </li>
-        ))}
-      </ul>
+      {/* Overlay for mobile/tablet */}
+      {isMenuOpen && (
+        <div className={styles.overlay} onClick={closeMenu}></div>
+      )}
 
-      <NavFooter onLogout={handleLogout} />
-    </nav>
+      <nav className={`${styles.sidebar} ${isMenuOpen ? styles.open : ''}`}>
+        <NavHeader />
+
+        <ul className={styles.navList}>
+          {NAV_ITEMS.map((item) => (
+            <li key={item.path} className={styles.navItem}>
+              <div onClick={closeMenu}>
+                <NavLink
+                  path={item.path}
+                  label={item.label}
+                  isActive={location.pathname === item.path}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <NavFooter onLogout={handleLogout} />
+      </nav>
+    </>
   );
 }
 

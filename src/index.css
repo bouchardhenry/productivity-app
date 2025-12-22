@@ -230,3 +230,17 @@ button {
   border-color: var(--color-accent);
   outline: none;
 }
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .content {
+  margin-left: 0;
+  }
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+  .content {
+  margin-left: 0;
+  }
+}
