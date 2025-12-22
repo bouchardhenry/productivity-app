@@ -98,8 +98,8 @@ const EventForm = () => {
 
                 <textarea value={description} rows='4' cols='30' placeholder="Describe your event..." onChange={(e) => setDescription(e.target.value)} />
                 <div>
-                <button>{ editEvent ? 'Save changes' : 'Add event' }</button>
                 <button type="button" onClick={() => emptyInputs()}>Clear</button>
+                <button>{ editEvent ? 'Save changes' : 'Add event' }</button>
                 </div>
                 </div>
             </form>
