@@ -8,6 +8,7 @@ export default function UserProvider({children}){
         return JSON.parse(localStorage.getItem('users')) || []
     })
 
+    //Skapar state för currentUser och hämtar från localStorage för att data inte ska försvinna vid refresh
     const [currentUser, setCurrentUser] = useState(() => {
         return JSON.parse(sessionStorage.getItem('currentUser')) || 
         JSON.parse(localStorage.getItem('currentUser')) || null
@@ -26,7 +27,6 @@ export default function UserProvider({children}){
             localStorage.removeItem('currentUser')
         }
     }, [currentUser])
-
 
     const registerUser = (username, password) => {
 
@@ -64,7 +64,6 @@ export default function UserProvider({children}){
         setCurrentUser(null)
     }
 
-    
     return(
         <UserContext value={{users, currentUser, registerUser, loginUser, logoutUser}}>
             {children}

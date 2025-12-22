@@ -7,6 +7,8 @@ export default function EventProvider({children}){
 
     const { currentUser } = useContext(UserContext)
 
+    //State som skapas redan innan useEffect körs för att data inte ska påverkas
+    //vid refresh av sidan
     const [events, setEvents] = useState(() => {
     const storedUser = JSON.parse(sessionStorage.getItem('currentUser')) ||
     JSON.parse(localStorage.getItem('currentUser'))
