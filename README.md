@@ -1,16 +1,33 @@
-# React + Vite
+# Productivity App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern productivity dashboard that helps you stay organized and motivated. Track your tasks, build lasting habits, and manage your calendar—all in one interface.
 
-Currently, two official plugins are available:
+**Built in collaboration with [@lukasdannemann](https://github.com/lukasdannemann) and [@emmywennersten](https://github.com/emmywennersten)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Task Management** - Create and track todos with deadlines, mark them complete, and view your latest incomplete tasks
+- **Habit Tracking** - Build and maintain daily habits with repetition tracking to measure your consistency
+- **Event Planning** - Schedule and view upcoming events with date ranges
+- **Motivational Quotes** - Start each day with inspiration from a random quote
+- **User Authentication** - Secure signup and login system
+- **Personalized Dashboard** - Quick overview showing your top 3 tasks, habits, and upcoming events
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19 with React Router for navigation
+- **Build Tool**: Vite for fast development and optimized builds
+- **State Management**: React Context API (UserContext, TodoContext, HabitsContext, EventContext)
+- **Styling**: CSS Modules for component-scoped styles
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
