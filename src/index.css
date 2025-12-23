@@ -59,6 +59,10 @@ button {
   font-size: 1.4rem;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .addButton {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-family: "Space Grotesk";
